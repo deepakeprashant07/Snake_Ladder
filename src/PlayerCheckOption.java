@@ -25,15 +25,16 @@ class SnakeLadder {
         ladder.put(46, 90);
         ladder.put(17, 69);
     }
-    public int calculateRunningValue(int Player_Pos,int Dice_val){
-        int Player_New_Position=Player_Pos+Dice_val;
-        if (null !=snake.get(Player_New_Position)){
+
+    public int calculateRunningValue(int Player_Pos, int Dice_val) {
+        int Player_New_Position = Player_Pos + Dice_val;
+        if (null != snake.get(Player_New_Position)) {
             System.out.println("Oops..Snakebite..");
-            Player_New_Position=snake.get(Player_New_Position);
+            Player_New_Position = snake.get(Player_New_Position);
         }
-        if (null!=ladder.get(Player_New_Position)){
+        if (null != ladder.get(Player_New_Position)) {
             System.out.println("Waw Nice! climbing the ladder....");
-            Player_New_Position=ladder.get(Player_New_Position);
+            Player_New_Position = ladder.get(Player_New_Position);
         }
         return Player_New_Position;
     }
@@ -48,14 +49,13 @@ class SnakeLadder {
         String start = scan.next();
         if ("r".equals(start)) {
             Dice_Value = (int) (Math.random() * (6 - 1 + 1)) + 1;
-            Player_Position=calculateRunningValue(Player_Position,Dice_Value);
+            Player_Position = calculateRunningValue(Player_Position, Dice_Value);
             System.out.println("Are You Ready To Play Press Y or N");
             String play = scan.next();
             if ("y".equals(play)) {
                 System.out.println("Dice Value " + Dice_Value);
                 System.out.println("Player Position " + Player_Position);
-            }
-            else {
+            } else {
                 System.out.println("Thank You!");
             }
         }
