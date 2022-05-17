@@ -4,12 +4,12 @@ import java.util.Map;
 
 public class PlayerCheckOption {
     public static void main(String[] args) {
-        SnakeLadder play = new SnakeLadder();
+        SnakeLadders play = new SnakeLadders();
         play.startGame();
     }
 }
 
-class SnakeLadder {
+class SnakeLadders {
     static Map<Integer, Integer> snake = new HashMap<>();
     static Map<Integer, Integer> ladder = new HashMap<>();
 
