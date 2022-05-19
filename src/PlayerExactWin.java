@@ -11,6 +11,8 @@ public class PlayerExactWin {
 
 class SnakeLadder {
     final static int WINPOINT = 100;
+     int s=0;
+
     static Map<Integer, Integer> snake = new HashMap<>();
     static Map<Integer, Integer> ladder = new HashMap<>();
 
@@ -36,30 +38,30 @@ class SnakeLadder {
         System.out.println("Player Position " + Player_Position);
         System.out.println("Are You Ready To Play Press Y or N");
         String play = scan.next();
-        if ("y".equals(play))
-        {
-            do
-            {
+        if ("y".equals(play)) {
+            do {
                 System.out.println("Press R To Roll Dice");
                 start = scan.next();
                 Dice_Value = (int) (Math.random() * (6 - 1 + 1)) + 1;
                 Player_Position = calculateRunningValue(Player_Position, Dice_Value);
                 System.out.println("Dice Value " + Dice_Value);
                 System.out.println("Player Position " + Player_Position);
-                if (winner(Player_Position))
-                {
+                if (winner(Player_Position)) {
                     System.out.println("Congratulations! player won");
                     return;
                 }
-            }while ("r".equals(start));
+            } while ("r".equals(start));
 
         }
     }
+
     public int calculateRunningValue(int Player_Pos, int Dice_val) {
         int Player_New_Position = Player_Pos + Dice_val;
-        if (Player_New_Position>WINPOINT)
+        if (Player_New_Position > WINPOINT)
             return Player_Pos;
         if (null != snake.get(Player_New_Position)) {
+
+                s+=1;
             System.out.println("Oops..Snakebite..");
             Player_New_Position = snake.get(Player_New_Position);
         }
@@ -70,8 +72,8 @@ class SnakeLadder {
         return Player_New_Position;
     }
 
-    public boolean winner(int Player_Win_Position){
-        return WINPOINT==Player_Win_Position;
+    public boolean winner(int Player_Win_Position) {
+        return WINPOINT == Player_Win_Position;
 
     }
 
